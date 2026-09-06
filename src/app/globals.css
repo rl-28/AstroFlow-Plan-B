@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070d;
+  --foreground: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Enforce sharp, rectangular edges globally across all containers, panels, and elements */
+*,
+*::before,
+*::after {
+  border-radius: 0px !important;
+}
+
+body {
+  background-color: #05070d;
+  color: #e2e8f0;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cosmic Ambient Drift Keyframes (hardware-accelerated 3D transforms) */
+@keyframes cosmic-drift-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(3%, 2.5%, 0) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes cosmic-drift-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(-2.5%, -3%, 0) scale(0.97);
+    opacity: 0.7;
+  }
+}
+
+@keyframes cosmic-drift-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.98);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+.animate-cosmic-cloud-1 {
+  animation: cosmic-drift-1 32s ease-in-out infinite;
+}
+
+.animate-cosmic-cloud-2 {
+  animation: cosmic-drift-2 40s ease-in-out infinite reverse;
+}
+
+.animate-cosmic-cloud-3 {
+  animation: cosmic-drift-3 48s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cosmic-cloud-1,
+  .animate-cosmic-cloud-2,
+  .animate-cosmic-cloud-3 {
+    animation: none !important;
+  }
+}
